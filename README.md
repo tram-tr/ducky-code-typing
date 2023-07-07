@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Ducky Coding Type 
+
+This is the Final Project for SU23-CSE-40693-CX-01 Modern Web Development
+
+Student: Hoai (Tram) Trinh (htrinh@nd.edu)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
