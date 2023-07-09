@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "../About/Header";
+import Footer from "../Footer/Footer";
 
 const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
   // Display register form
   if (!isLogin) {
     return (
       <div>
-        <h1 className="header">register</h1>
-        <div className="register">
+        <div className="register-form">
           <form onSubmit={onSubmit} autoComplete="off">
             <div className="form-group">
-              <label>username</label>
               <br />
               <input
                 type="text"
@@ -19,11 +19,11 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
                 value={user.username}
                 onChange={onChange}
                 name="username"
+                placeholder="username"
                 required
               />
             </div>
             <div className="form-group">
-              <label>first name</label>
               <br />
               <input
                 type="text"
@@ -32,10 +32,10 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
                 value={user.firstName}
                 onChange={onChange}
                 name="firstName"
+                placeholder="first name"
               />
             </div>
             <div className="form-group">
-              <label>last name</label>
               <br />
               <input
                 type="text"
@@ -44,10 +44,10 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
                 value={user.lastName}
                 onChange={onChange}
                 name="lastName"
+                placeholder="last name"
               />
             </div>{" "}
             <div className="form-group">
-              <label>email</label>
               <br />
               <input
                 type="email"
@@ -56,10 +56,10 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
                 value={user.email}
                 onChange={onChange}
                 name="email"
+                placeholder="email"
               />
             </div>{" "}
             <div className="form-group">
-              <label>password</label>
               <br />
               <input
                 type="password"
@@ -69,11 +69,11 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
                 onChange={onChange}
                 name="password"
                 min="0"
+                placeholder="password"
                 required
               />
             </div>
             <div className="form-group">
-              <label>verify password</label>
               <br />
               <input
                 type="password"
@@ -83,16 +83,20 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
                 onChange={onChange}
                 name="verifyPassword"
                 min="0"
+                placeholder="verify password"
                 required
               />
             </div>
             <br />
-            <hr />
             <div className="form-group">
-              <button type="submit" className="registerButton" onSubmit={onSubmit}>
+              <button
+                type="submit"
+                className="authButton"
+                onSubmit={onSubmit}
+              >
                 Sign Up
               </button>
-              <p className="registerSubtext">
+              <p className="authSubtext">
                 Already have an account? <Link to="/login">Sign In</Link>
               </p>
             </div>
@@ -104,11 +108,9 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
     // Otherwise, display login form
     return (
       <div>
-        <h1 className="header">login</h1>
-        <div className="login">
+        <div className="login-form">
           <form onSubmit={onSubmit} autoComplete="off">
-          <div className="form-group">
-              <label>username</label>
+            <div className="form-group">
               <br />
               <input
                 type="text"
@@ -117,11 +119,11 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
                 value={user.email}
                 onChange={onChange}
                 name="username"
+                placeholder="username"
                 required
               />
             </div>{" "}
             <div className="form-group">
-              <label>password</label>
               <br />
               <input
                 type="password"
@@ -130,18 +132,23 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
                 value={user.password}
                 onChange={onChange}
                 name="password"
+                placeholder="password"
                 min="0"
                 required
               />
             </div>
             <br />
-            <hr />
             <div className="form-group">
-              <button type="submit" className="registerButton" onSubmit={onSubmit}>
+              <button
+                type="submit"
+                className="authButton"
+                onSubmit={onSubmit}
+              >
                 Sign In
               </button>
-              <p className="registerSubtext">
-                Don't have an account? <Link to="/register">Create an Account</Link>
+              <p className="authSubtext">
+                Don't have an account?{" "}
+                <Link to="/register">Create an Account</Link>
               </p>
             </div>
           </form>

@@ -5,7 +5,11 @@ import {
   getUser,
 } from "../../Common/Services/AuthService";
 import AuthForm from "./AuthForm";
+import Header from "../About/Header";
+import Footer from "../Footer/Footer";
 import { useNavigate } from "react-router-dom";
+import ErrorMessage from "./ErrorMessage";
+import "../../Common/Styles/AuthForm.css";
 
 const AuthRegister = () => {
   const navigate = useNavigate();
@@ -15,15 +19,17 @@ const AuthRegister = () => {
     lastName: "",
     email: "",
     password: "",
+    verifyPassword: ""
   });
 
   // flags in the state to watch for add/remove updates
   const [add, setAdd] = useState(false);
+  const [error, setError] = useState("");
 
   // redirect already authenticated users back to home
   useEffect(() => {
     if (checkUser()) {
-      alert("You are already logged in");
+      //alert("You are already logged in");
       const username = getUser().get("username");
       navigate(`/${username}/main`);
     }
@@ -31,18 +37,19 @@ const AuthRegister = () => {
 
   // useEffect that run when changes are made to the state variable flags
   useEffect(() => {
-    // checkUser() ? history.push("/home"): null;
     if (newUser && add) {
-      createUser(newUser).then((userCreated) => {
+      createUser(newUser, setError).then((userCreated) => {
         if (userCreated) {
-          alert(
+          /*alert(
             `${userCreated.get("firstName")}, you successfully registered!`
-          );
+          );*/
           const username = userCreated.get("username");
           navigate(`/${username}/main`);
         }
         // TODO: redirect user to main app
         setAdd(false);
+      }).catch((error) => {
+        setError(`Error: ${error.message}`);
       });
     }
   }, [navigate, newUser, add]);
@@ -67,11 +74,15 @@ const AuthRegister = () => {
 
   return (
     <div>
+      <Header />
+      <h1 className="header-form">register</h1>
+      <ErrorMessage message={error} />
       <AuthForm
         user={newUser}
         onChange={onChangeHandler}
         onSubmit={onSubmitHandler}
       />
+      <Footer />
     </div>
   );
 };

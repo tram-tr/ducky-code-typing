@@ -8,7 +8,7 @@ const Footer = () => {
       <p>
         traamtr |{" "}
         <a
-          href="https://github.com/tram-tr/ducky-coding-type"
+          href="https://github.com/tram-tr/ducky-code-typing"
           className="footer-link"
         >
           <span className="footer-icon-wrapper">

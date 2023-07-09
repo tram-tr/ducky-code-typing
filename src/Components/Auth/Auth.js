@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { checkUser, getUser } from "../../Common/Services/AuthService";
 import Header from "../About/Header";
 import Footer from "../Footer/Footer";
+import About from "../About/About";
 import "../../Common/Styles/Auth.css";
 
 const AuthModule = () => {
@@ -35,6 +36,7 @@ const AuthModule = () => {
           </nav>
         </div>
       </div>
+      <About />
       <Footer />
     </div>
   );

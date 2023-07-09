@@ -1,0 +1,111 @@
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.header-form {
+  font-size: 18px;
+  color: #ffd801;
+  text-align: center;
+  background-color: #2b2b2b;
+  width: 25%;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: auto;
+  margin-top: -5px;
+  border-radius: 3px;
+}
+
+.register-form {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: auto;
+  margin-top: 35px;
+}
+
+.login-form {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: auto;
+  margin-top: 35px;
+}
+
+.form-group label {
+  display: inline-flex;
+  font-weight: bold;
+  margin-bottom: -10px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-control::placeholder {
+  color: #777777;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.form-group input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: -10px;
+}
+
+button.authButton {
+  padding: 6px 15px;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffd801;
+  font-family: "Roboto Mono", monospace;
+  margin-top: 5px;
+  color: #2b2b2b;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.authButton:hover {
+  background-color: #ffc107;
+}
+
+.authSubtext {
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+.authSubtext a {
+  color: #ffd801;
+  text-decoration: none;
+}
+
+.authSubtext a:hover {
+  text-decoration: underline;
+}
+
+.errorMessage {
+  color: #ffd801;
+  text-align: center;
+  margin-bottom: -30px;
+}
