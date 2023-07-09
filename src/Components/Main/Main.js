@@ -1,16 +1,17 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
+import Footer from "../Footer/Footer";
+import DashBoard from "./DashBoard";
 
-/* STATEFUL PARENT COMPONENT */
 const MainModule = () => {
   // Variables in the state to hold data
 
   return (
     <div>
       <NavBar />
-      <hr />
-      This is the main parent component.
+      <DashBoard />
       {/* Stateless Child component passing up events from form */}
+      <Footer />
     </div>
   );
 };

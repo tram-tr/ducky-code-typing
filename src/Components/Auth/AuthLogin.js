@@ -6,7 +6,7 @@ import {
 } from "../../Common/Services/AuthService";
 import AuthForm from "./AuthForm";
 import { useNavigate } from "react-router-dom";
-import Header from "../About/Header";
+import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import ErrorMessage from "./ErrorMessage";
 import "../../Common/Styles/AuthForm.css";

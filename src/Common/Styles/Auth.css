@@ -1,5 +1,5 @@
 /* Navbar CSS */
-.navbar {
+.auth-module-container .navbar {
   background-color: #2b2b2b;
   border-radius: 3px;
   padding: 1px;
@@ -11,7 +11,7 @@
   margin-top: -5px;
 }
 
-.navbar-menu {
+.auth-module-container .navbar-menu {
   list-style-type: none;
   display: flex;
   justify-content: space-between;
@@ -22,13 +22,13 @@
   flex: 0.5;
 }
 
-.navbar-menu li {
+.auth-module-container .navbar-menu li {
   font-size: 18px;
   text-align: center;
   flex: 1;
 }
 
-.navbar-menu li a {
+.auth-module-container .navbar-menu li a {
   color: #6a6a6a;
   text-decoration: none;
   padding: 10px;
@@ -36,11 +36,11 @@
   font-weight: bold;
 }
 
-.navbar-menu li a:hover {
+.auth-module-container .navbar-menu li a:hover {
   color: #ffd801;
 }
 
-.navbar-menu li a.active {
+.auth-module-container .navbar-menu li a.active {
   opacity: 0.8;
   font-weight: bold;
 }

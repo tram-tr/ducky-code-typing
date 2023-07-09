@@ -1,0 +1,52 @@
+.auth-header-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffd801;
+  align-items: center;
+  justify-content: center;
+  margin-left: -8px;
+}
+
+.auth-header-link h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+/* Navbar CSS */
+.auth-navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.auth-navbar-menu {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin-left: 35px;
+}
+
+.auth-navbar-menu li {
+  font-size: 18px;
+  margin-right: 35px;
+}
+
+.auth-navbar-menu li a {
+  color: #6a6a6a;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  font-weight: bold;
+}
+
+.auth-navbar-menu li a:hover {
+  color: #ffd801;
+}
+
+.auth-navbar-menu li a.active {
+  opacity: 0.8;
+  font-weight: bold;
+}

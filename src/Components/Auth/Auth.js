@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { checkUser, getUser } from "../../Common/Services/AuthService";
-import Header from "../About/Header";
+import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import About from "../About/About";
 import "../../Common/Styles/Auth.css";
