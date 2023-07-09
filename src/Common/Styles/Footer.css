@@ -1,5 +1,4 @@
 footer {
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -7,6 +6,7 @@ footer {
   text-align: center;
   color: grey;
   font-size: 15px;
+  margin-left: -10px;
 }
 
 .footer-link {

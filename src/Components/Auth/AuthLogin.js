@@ -6,6 +6,10 @@ import {
 } from "../../Common/Services/AuthService";
 import AuthForm from "./AuthForm";
 import { useNavigate } from "react-router-dom";
+import Header from "../About/Header";
+import Footer from "../Footer/Footer";
+import ErrorMessage from "./ErrorMessage";
+import "../../Common/Styles/AuthForm.css";
 
 const AuthLogin = () => {
   const navigate = useNavigate();
@@ -18,10 +22,11 @@ const AuthLogin = () => {
 
   // flags in the state to watch for add/remove updates
   const [add, setAdd] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (checkUser()) {
-      alert("You are already logged in");
+      //alert("You are already logged in");
       const username = getUser().get("username");
       navigate(`/${username}/main`);
     }
@@ -32,14 +37,17 @@ const AuthLogin = () => {
     if (currentUser && add) {
       loginUser(currentUser).then((userLoggedIn) => {
         if (userLoggedIn) {
-          alert(
+          /*alert(
             `${userLoggedIn.get("firstName")}, you successfully logged in!`
-          );
+          );*/
           const username = userLoggedIn.get("username");
           navigate(`/${username}/main`);
         }
         // TODO: redirect user to main app
         setAdd(false);
+      })
+      .catch((error) => {
+        setError(`Error: ${error.message}`);
       });
     }
   }, [navigate, currentUser, add]);
@@ -64,12 +72,16 @@ const AuthLogin = () => {
 
   return (
     <div>
+      <Header />
+      <h1 className="header-form">login</h1>
+      <ErrorMessage message={error} />
       <AuthForm
         user={currentUser}
         isLogin={true}
         onChange={onChangeHandler}
         onSubmit={onSubmitHandler}
       />
+      <Footer />
     </div>
   );
 };

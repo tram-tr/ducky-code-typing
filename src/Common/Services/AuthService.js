@@ -1,12 +1,13 @@
 import Parse from "parse";
 
 // used in auth register component
-export const createUser = (newUser) => {
+export const createUser = (newUser, setError) => {
   const { username, firstName, lastName, password, email, verifyPassword } =
     newUser;
 
   if (password !== verifyPassword) {
-    alert("Passwords do not match");
+    //alert("Passwords do not match");
+    setError("Error: Passwords do not match.");
     return Promise.resolve();
   } else {
     const user = new Parse.User();
@@ -23,9 +24,9 @@ export const createUser = (newUser) => {
       .then((newUserSaved) => {
         return newUserSaved;
       })
-      .catch((error) => {
+      /*.catch((error) => {
         alert(`Error: ${error.message}`);
-      });
+      })*/;
   }
 };
 
@@ -43,9 +44,9 @@ export const loginUser = (currUser) => {
     .then((currUserSaved) => {
       return currUserSaved;
     })
-    .catch((error) => {
+    /*.catch((error) => {
       alert(`Error here: ${error.message}`);
-    });
+    })*/;
 };
 
 // used to check authentication
@@ -68,7 +69,7 @@ export const logoutUser = (navigate) => {
     .then(() => {
       navigate("/");
     })
-    .catch((error) => {
+    /*.catch((error) => {
       alert(`Error: ${error.message}`);
-    });
+    });*/
 };
