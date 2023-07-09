@@ -1,4 +1,4 @@
-# Ducky Coding Type 
+# Ducky Code-typing
 
 This is the Final Project for SU23-CSE-40693-CX-01 Modern Web Development
 
