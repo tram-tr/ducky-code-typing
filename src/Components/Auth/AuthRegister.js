@@ -5,7 +5,7 @@ import {
   getUser,
 } from "../../Common/Services/AuthService";
 import AuthForm from "./AuthForm";
-import Header from "../About/Header";
+import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import ErrorMessage from "./ErrorMessage";

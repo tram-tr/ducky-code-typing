@@ -16,8 +16,8 @@ const Header = () => {
   };
 
   return (
-    <div className="header">
-      <Link className="header-link" to="/" onClick={handleClick}>
+    <div className="welcome-header">
+      <Link className="welcome-header-link" to="/" onClick={handleClick}>
         <h1>duckytype</h1>
       <img src={psyduckGIF} alt="Ducky GIF" />
       <TypingEffect text={"ducky see, ducky code, ducky type"} />

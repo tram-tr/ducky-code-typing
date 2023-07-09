@@ -1,5 +1,5 @@
 /* Header CSS */
-.header {
+.welcome-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
   text-align: center;
 }
 
-.header h1 {
+.welcome-header h1 {
   font-size: 36px;
   margin-bottom: 20px;
   font-weight: normal;
@@ -16,19 +16,19 @@
   color: #ffd801;
 }
 
-.header img {
+.welcome-header img {
   width: 200px;
   margin-bottom: 5px;
 }
 
-.header a {
+.welcome-header a {
   text-decoration: none;
   color: #e9e9e9;
 }
 
-.header a:hover,
-.header a:focus,
-.header a:active {
+.welcome-header a:hover,
+.welcome-header a:focus,
+.welcome-header a:active {
   text-decoration: none;
   color: #e9e9e9;
   outline: none;

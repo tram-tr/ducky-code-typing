@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "../About/Header";
-import Footer from "../Footer/Footer";
 
 const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
   // Display register form
