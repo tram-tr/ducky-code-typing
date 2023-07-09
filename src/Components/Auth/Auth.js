@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { checkUser, getUser } from "../../Common/Services/AuthService";
-import TypingEffect from "../TypingTest/TypingEffect";
-import psyduckGIF from "../../Common/Images/psyduck.gif";
+import Header from "../About/Header";
+import Footer from "../Footer/Footer";
 import "../../Common/Styles/Auth.css";
 
 const AuthModule = () => {
@@ -20,17 +20,22 @@ const AuthModule = () => {
 
   return (
     <div className="auth-module-container">
-      <h1>duckytype</h1>
-      <img src={psyduckGIF} alt="Ducky GIF" />
-      <TypingEffect text={"ducky see, ducky code, ducky type"} />
-      <Link to="/register">
-        <button className="auth-module-button">Register</button>
-      </Link>
-      <br />
-      <br />
-      <Link to="/login">
-        <button className="auth-module-button">Login</button>
-      </Link>
+      <div className="button-row">
+        <Header />
+        <div className="navbar-container">
+          <nav className="navbar">
+            <ul className="navbar-menu">
+              <li>
+                <Link to="/register">register</Link>
+              </li>
+              <li>
+                <Link to="/login">login</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };

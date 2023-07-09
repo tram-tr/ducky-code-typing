@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { checkUser, loginUser, getUser } from "../../Common/Services/AuthService";
+import {
+  checkUser,
+  loginUser,
+  getUser,
+} from "../../Common/Services/AuthService";
 import AuthForm from "./AuthForm";
 import { useNavigate } from "react-router-dom";
 
@@ -9,7 +13,7 @@ const AuthLogin = () => {
   // redirect already authenticated users back to home
   const [currentUser, setCurrentUser] = useState({
     username: "",
-    password: ""
+    password: "",
   });
 
   // flags in the state to watch for add/remove updates
@@ -48,7 +52,7 @@ const AuthLogin = () => {
 
     setCurrentUser({
       ...currentUser,
-      [name]: newValue
+      [name]: newValue,
     });
   };
 

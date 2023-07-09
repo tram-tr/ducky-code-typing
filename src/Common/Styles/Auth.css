@@ -1,32 +1,45 @@
-.auth-module-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.button-row {
+/* Navbar CSS */
+.navbar {
+  background-color: #2b2b2b;
+  border-radius: 3px;
+  padding: 1px;
+  width: 25%;
+  margin: auto;
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+  align-items: center;
+  margin-top: -5px;
 }
 
-.auth-module-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 4px;
-  background-color: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.navbar-menu {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 0;
+  flex: 0.5;
 }
 
-.auth-module-button:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+.navbar-menu li {
+  font-size: 18px;
+  text-align: center;
+  flex: 1;
 }
 
-.auth-module-button:last-child {
-  margin-bottom: 0;
+.navbar-menu li a {
+  color: #6a6a6a;
+  text-decoration: none;
+  padding: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+  color: #ffd801;
+}
+
+.navbar-menu li a.active {
+  opacity: 0.8;
+  font-weight: bold;
 }

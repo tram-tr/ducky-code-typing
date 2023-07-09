@@ -1,0 +1,26 @@
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: grey;
+  font-size: 15px;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.footer-icon {
+  position: relative;
+  margin-top: 4px;
+  top: 6px;
+  left: 1px;
+}
+
+.footer-link:active .footer-icon {
+  color: inherit;
+}

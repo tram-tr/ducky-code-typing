@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { checkUser, createUser, getUser } from "../../Common/Services/AuthService";
+import {
+  checkUser,
+  createUser,
+  getUser,
+} from "../../Common/Services/AuthService";
 import AuthForm from "./AuthForm";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +14,7 @@ const AuthRegister = () => {
     firstName: "",
     lastName: "",
     email: "",
-    password: ""
+    password: "",
   });
 
   // flags in the state to watch for add/remove updates
@@ -51,7 +55,7 @@ const AuthRegister = () => {
 
     setNewUser({
       ...newUser,
-      [name]: newValue
+      [name]: newValue,
     });
   };
 
