@@ -9,14 +9,51 @@
   background: transparent;
 }
 
-/* 80s after dark */
-:root {
-  --bg-color: #1b1d36;
-  --main-color: #fca6d1;
-  --caret-color: #99d6ea;
-  --sub-color: #99d6ea;
-  --text-color: #fca6d1;
-  --error-color: #fffb85;
+.refreshButton {
+  padding: 6px 15px;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ffd801;
+  font-family: "Roboto Mono", monospace;
+  margin-top: 5px;
+  color: #2b2b2b;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.refreshButton:hover {
+  background-color: #ffc107;
+}
+
+.under-typing-test-section {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 5xl;
+}
+
+.typing-test-real-time-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 5xl;
+  background-color: #1e1e1e;
+  padding: 4px;
+  margin-top: 10px; /* Add some margin at the top to move it down */
+}
+
+.typing-test-stat {
+  color: #f6f6f6;
+  margin: 1px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px; /* Add some padding to separate the stats from each other */
 }
 
 /* Utility Classes */
@@ -39,25 +76,25 @@
 
 @keyframes blinkLeft {
   0% {
-    border-left-color: rgba(241, 250, 140, 0);
+    border-left-color: #1e1e1e;
   }
   50% {
-    border-left-color: var(--caret-color);
+    border-left-color: #1e1e1e; /* Update with your preferred color */
   }
   100% {
-    border-left-color: rgba(241, 250, 140, 0);
+    border-left-color: #1e1e1e;
   }
 }
 
 @keyframes blinkRight {
   0% {
-    border-right-color: rgba(241, 250, 140, 0);
+    border-right-color: #1e1e1e;
   }
   50% {
-    border-right-color: var(--caret-color);
+    border-right-color: #1e1e1e; /* Update with your preferred color */
   }
   100% {
-    border-right-color: rgba(241, 250, 140, 0);
+    border-right-color: #1e1e1e;
   }
 }
 
@@ -80,7 +117,7 @@
   margin: -75px 0 0 -75px;
   border-radius: 50%;
   border: 3px solid transparent;
-  border-top-color: #9370db;
+  border-top-color: #ffd801;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
@@ -94,7 +131,7 @@
   bottom: 5px;
   border-radius: 50%;
   border: 3px solid transparent;
-  border-top-color: #ba55d3;
+  border-top-color: #ffd801;
   -webkit-animation: spin 3s linear infinite;
   animation: spin 3s linear infinite;
 }
@@ -108,7 +145,7 @@
   bottom: 15px;
   border-radius: 50%;
   border: 3px solid transparent;
-  border-top-color: #ff00ff;
+  border-top-color: #ffd801; /* Update with your preferred color */
   -webkit-animation: spin 1.5s linear infinite;
   animation: spin 1.5s linear infinite;
 }
