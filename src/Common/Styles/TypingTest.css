@@ -1,3 +1,75 @@
+.typing-test-section-wrapper {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: scroll;
+}
+
+.typing-test-section {
+  max-width: 100rem; 
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  padding: 6px;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.typing-test-info {
+  width: 65%;
+  top: -25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 80rem; 
+  padding: 4px;
+}
+
+.typing-test-words-count {
+  color: #f6f6f6;
+  margin: 1px;
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+.typing-test-timer {
+  color: #ffd801;
+  margin: 1px;
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+.typing-test-selected-type {
+  position: relative;
+  color: #ffd801;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 40;
+}
+
+.types-dropdown-menu {
+  position: absolute;
+  top: 8px;
+  background-color: #2e2e2e;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  right: -30px;
+  box-sizing: content-box;
+}
+
+.typing-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px;
+  max-width: 90rem;
+}
 .containerWithoutScrollbar {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
@@ -7,6 +79,45 @@
   display: none; /* Safari and Chrome */
   width: 0;
   background: transparent;
+}
+
+.display-words {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 4px;
+  max-width: 5xl;
+  line-height: 1.5;
+  width: 60%;
+}
+
+.hidden-input {
+  position: fixed;
+  top: -100px;
+  background: transparent;
+  color: transparent;
+  outline: none;
+  border: none;
+}
+
+.click-to-continue {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e1e1e;
+  border: 1px solid #ffd801;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 50px;
+  padding: 100px;
+}
+
+.click-to-continue p {
+  color: #ffd801;
+  margin-bottom: 10px;
 }
 
 .refreshButton {
@@ -45,7 +156,7 @@
   max-width: 5xl;
   background-color: #1e1e1e;
   padding: 4px;
-  margin-top: 10px; /* Add some margin at the top to move it down */
+  margin-top: 10px; 
 }
 
 .typing-test-stat {
@@ -53,7 +164,7 @@
   margin: 1px;
   font-size: 16px;
   font-weight: bold;
-  padding: 8px; /* Add some padding to separate the stats from each other */
+  padding: 8px; 
 }
 
 /* Utility Classes */
