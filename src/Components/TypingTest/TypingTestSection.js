@@ -10,7 +10,7 @@ import { getFileExtbyType } from "../../Common/Services/FileExtService";
 import "../../Common/Styles/TypingTest.css";
 
 const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
-  // State variables
+  // state variables
   const [words, setWords] = useState("");
   const [typedWords, setTypedWords] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -22,7 +22,7 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
   const [isInputFocused, setIsInputFocused] = useState(true);
   const clickToContinueRef = useRef(null);
 
-  // Ref for the dropdown menu
+  // ref for the dropdown menu
   const dropdownRef = useRef(null);
   UseClickOutside(dropdownRef, function handleClickOutside(event) {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -30,11 +30,11 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
     }
   });
 
-  // Ref for the typing area
+  // ref for the typing area
   const typingAreaRef = useRef(null);
   UseClickOutside(typingAreaRef, function handleClickOutside(event) {
     if (
-      !clickToContinueRef.current && // check if "Click to continue" is not visible
+      !clickToContinueRef.current && // check if "Click here to continue" is not visible
       typingAreaRef.current &&
       !typingAreaRef.current.contains(event.target)
     ) {
@@ -42,7 +42,7 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
     }
   });
 
-  // Function to calculate WPM and rawWPM
+  // function to calculate WPM and rawWPM
   const calculateWPM = (typedSentence, timeTakenInSeconds, accuracy) => {
     const charactersTyped = typedSentence.replace(/\s+/g, "").length;
     const wordsTyped = Math.ceil(charactersTyped / 5); // Assuming an average word length of 5 characters
@@ -54,7 +54,7 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
     return { rawWPM, netWPM };
   };
 
-  // Function to calculate accuracy
+  // function to calculate accuracy
   const calculateAccuracy = (typedSentence) => {
     const typedWordsArray = typedSentence.split(" ");
     const wordsArray = words.split(" ");
@@ -78,7 +78,7 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
     return accuracy.toFixed(2);
   };
 
-  // Function to handle typing finished event
+  // function to handle typing finished event
   const typingFinished = (typedSentence) => {
     const accuracy = calculateAccuracy(typedSentence);
     const timeTakenInSeconds = seconds;
@@ -88,20 +88,20 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
       accuracy
     );
 
-    // Get the current date and time
+    // get the current date and time
     const currentDateTime = new Date();
 
-    // Save data to localStorage
+    // save data to localStorage
     localStorage.setItem("accuracy", accuracy);
     localStorage.setItem("wpm", netWPM);
 
-    // Fetch fileExtObjects based on selectedType
+    // fetch fileExtObjects based on selectedType
     getFileExtbyType(chosenLanguage)
       .then((fileExtObjects) => {
         const selectedFileExt =
           fileExtObjects.length > 0 ? fileExtObjects[0] : null;
 
-        // Prepare data object to pass to createTypingTest function
+        // prepare data object to pass to createTypingTest function
         const typingTestData = {
           accuracy: parseFloat(accuracy),
           speed: parseFloat(netWPM),
@@ -110,7 +110,7 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
           selectedType: selectedFileExt ? selectedFileExt.toPointer() : null,
         };
 
-        // Call createTypingTest function and save data to Parse
+        // call createTypingTest function and save data to Parse
         createTypingTest(typingTestData)
           .then((result) => {
             console.log("Typing test saved to Parse:", result);
@@ -123,7 +123,7 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
         console.error("Error fetching FileExt objects from Parse:", error);
       });
 
-    // Update state
+    // update state
     setPrevAccuracy(accuracy);
     setPrevWPM(netWPM);
     setTypingStarted(false);
@@ -149,7 +149,7 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
     fetchData();
   }, [toggle, chosenLanguage]);
 
-  // Show loading screen when words are not available yet
+  // show loading screen when words are not available yet
   if (words.length === 0) {
     return (
       <div
@@ -170,73 +170,18 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
   }
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        minHeight: "100vh",
-        minWidth: "100vw",
-        overflow: "scroll",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "7xl",
-          width: "100vw",
-          height: "100vh",
-          display: "flex",
-          padding: "6px",
-          alignItems: "center",
-          justifyContent: "around",
-          flexDirection: "column",
-        }}
-      >
-        <div
-          style={{
-            width: "60%",
-            top: "-25px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
-            maxWidth: "5xl",
-            padding: "4px",
-          }}
-        >
+    <div className="typing-test-section-wrapper">
+      <div className="typing-test-section">
+        <div className="typing-test-info">
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div style={{ display: "inline-flex", flexDirection: "row" }}>
-              <p
-                style={{
-                  color: "#f6f6f6",
-                  margin: "1px",
-                  marginBottom: "4px",
-                  fontSize: "16px",
-                }}
-              >{`${typedWords.split(" ").length - 1}/${
-                words.split(" ").length
-              }`}</p>
-              <p
-                style={{
-                  color: "#ffd801",
-                  margin: "1px",
-                  fontSize: "16px",
-                  marginLeft: "8px",
-                }}
-              >
-                {seconds}
-              </p>
+              <p className="typing-test-words-count">{`${
+                typedWords.split(" ").length - 1
+              }/${words.split(" ").length}`}</p>
+              <p className="typing-test-timer">{seconds}</p>
             </div>
           </div>
-          <div
-            style={{
-              position: "relative",
-              color: "#ffd801",
-              fontSize: "16px",
-              cursor: "pointer",
-              fontWeight: "bold",
-              zIndex: "40",
-            }}
-          >
+          <div className="typing-test-selected-type">
             <p
               onClick={() =>
                 isInputFocused && setIsDropdownOpen(!isDropdownOpen)
@@ -245,18 +190,7 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
               {chosenLanguage}
             </p>
             {isDropdownOpen && (
-              <div
-                ref={dropdownRef}
-                style={{
-                  position: "absolute",
-                  top: "8px",
-                  backgroundColor: "#2e2e2e",
-                  borderRadius: "4px",
-                  height: "auto",
-                  right: "-17px",
-                  boxSizing: "content-box",
-                }}
-              >
+              <div ref={dropdownRef} className="types-dropdown-menu">
                 {languages.map((language) => (
                   <p
                     key={language}
@@ -286,31 +220,13 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
         </div>
         <div
           ref={typingAreaRef}
-          style={{
-            width: "100%",
-            display: "flex",
-            flexDirection: "column", // Stack words vertically
-            alignItems: "center", // Center words horizontally
-            padding: "4px",
-            maxWidth: "5xl",
-          }}
+          className="typing-area"
           onClick={() => {
             window.document.getElementById("type-box").focus();
             setIsInputFocused(true);
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              flexWrap: "wrap",
-              padding: "4px",
-              maxWidth: "5xl",
-              lineHeight: "1.5",
-              width: "60%",
-            }}
-          >
+          <div className="display-words">
             {words.split(" ").map((word, index) => (
               <React.Fragment key={index}>
                 {index > 0 && <span style={{ margin: "0 4px" }}>&nbsp;</span>}
@@ -323,22 +239,7 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
             ))}
           </div>
           {!isInputFocused && (
-            <div
-              ref={clickToContinueRef}
-              style={{
-                position: "absolute",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#1e1e1e",
-                border: "1px solid #ffd801",
-                cursor: "pointer",
-                fontSize: "16px",
-                fontWeight: "bold",
-                margin: "50px",
-                padding: "100px",
-              }}
-            >
+            <div ref={clickToContinueRef} className="click-to-continue">
               <p style={{ color: "#ffd801", marginBottom: "10px" }}>
                 Click here to continue
               </p>
@@ -347,14 +248,7 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
         </div>
         <input
           id="type-box"
-          style={{
-            position: "fixed",
-            top: "-100px",
-            background: "transparent",
-            color: "transparent",
-            outline: "none",
-            border: "none",
-          }}
+          className="hidden-input"
           onChange={(e) => {
             if (typingStarted === false && e.target.value.length > 0) {
               setTypingStarted(true);
@@ -373,18 +267,7 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
           value={typedWords}
           autoFocus
         />
-        <div
-          /*style={{
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "evenly",
-            flexDirection: "column",
-            sm: { flexDirection: "row" },
-            maxWidth: "5xl",
-          }}*/
-          className="under-typing-test-section"
-        >
+        <div className="under-typing-test-section">
           <button
             className="refreshButton"
             onClick={() => {
