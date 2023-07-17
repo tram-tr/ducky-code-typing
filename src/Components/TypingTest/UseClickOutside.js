@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const UseClickOutside = (ref, handleClickOutside) => {
-  const ignoreNodes = ["BUTTON", "INPUT", "P"]; //  tag names that should be ignored 
+  const ignoreNodes = ["BUTTON", "INPUT", "P", "LI", "A"]; //  tag names that should be ignored 
 
   useEffect(() => {
     const handleClick = (event) => {

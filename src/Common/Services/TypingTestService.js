@@ -5,6 +5,7 @@ export const createTypingTest = (data) => {
   const typingTest = new Parse.Object("TypingTest");
   typingTest.set("accuracy", data.accuracy);
   typingTest.set("speed", data.speed);
+  typingTest.set("rawWPM", data.rawWPM);
   typingTest.set("takenAt", data.takenAt);
   typingTest.set("takenBy", Parse.User.current());
   typingTest.set("selectedType", data.selectedType);
@@ -17,7 +18,7 @@ export const createTypingTest = (data) => {
 
 // READ operation - by id
 export const getTypingTestById = (id) => {
-  const TypingTest = Parse.Object.extend("ypingTest");
+  const TypingTest = Parse.Object.extend("TypingTest");
   const query = new Parse.Query(TypingTest);
   return query.get(id).then((result) => {
     // return TypingTest object with objectId: id
