@@ -35,7 +35,7 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-              <Link to={`/${username}/main`}>
+              <Link to={`/${username}/typing-test`}>
                 <BiSolidKeyboard className="menu-icon" />
               </Link>
             </li>

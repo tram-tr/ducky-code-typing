@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../NavBar/NavBar";
 import About from "./About";
 import Footer from "../Footer/Footer";
-import TypingEffect from "../TypingTest/TypingEffect";
+import TypingEffect from "../Header/TypingEffect";
 import psyduckGIF from "../../Common/Images/psyduck.gif";
 
 const AboutModule = () => {

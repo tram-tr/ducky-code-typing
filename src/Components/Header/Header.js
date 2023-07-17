@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import TypingEffect from "../TypingTest/TypingEffect";
+import TypingEffect from "./TypingEffect";
 import psyduckGIF from "../../Common/Images/psyduck.gif";
 import "../../Common/Styles/Header.css";
 import { checkUser, getUser } from "../../Common/Services/AuthService";
