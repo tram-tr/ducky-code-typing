@@ -18,8 +18,7 @@ const About = () => {
         </li>
         <li>inspired by the popular typing platform MonkeyType</li>
         <li className="funfact">(fun fact 0: psyduck is my favorite pokemon!)</li>
-        <li className="funfact">(fun fact 1: this is still in the developing phase...)</li>
-        <li className="funfact">(fun fact 2: there is also a terminal-based version of duckytype written in C but it's still in the debugging phase...)</li>
+        <li className="funfact">(fun fact 1: there is also a terminal-based version of duckytype written in C but it's still in the debugging phase...)</li>
       </ul>
       <ul>
         stats
