@@ -9,6 +9,7 @@ import {
   BiSolidKeyboard,
   BiLogOut,
   BiInfoCircle,
+  BiChart,
 } from "react-icons/bi";
 import "../../Common/Styles/NavBar.css";
 
@@ -31,7 +32,7 @@ const NavBar = () => {
           <ul className="auth-navbar-menu">
             <li>
               <Link to={`/${username}/main`}>
-                <BiSolidUserDetail className="menu-icon" />
+                <BiChart className="menu-icon" />
               </Link>
             </li>
             <li>
