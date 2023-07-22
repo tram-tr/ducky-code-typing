@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
+const AuthForm = ({ user, isLogin, onChange, onSubmit, forgotPwd }) => {
   // Display register form
   if (!isLogin) {
     return (
       <div>
         <div className="register-form">
-          <form onSubmit={onSubmit} autoComplete="off">
+          <form onSubmit={onChange} autoComplete="off">
             <div className="form-group">
               <br />
               <input
@@ -87,11 +87,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
             </div>
             <br />
             <div className="form-group">
-              <button
-                type="submit"
-                className="authButton"
-                onSubmit={onSubmit}
-              >
+              <button type="submit" className="authButton" onSubmit={onSubmit}>
                 Sign Up
               </button>
               <p className="authSubtext">
@@ -103,56 +99,97 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
       </div>
     );
   } else {
-    // Otherwise, display login form
-    return (
-      <div>
-        <div className="login-form">
-          <form onSubmit={onSubmit} autoComplete="off">
-            <div className="form-group">
+    if (!forgotPwd) {
+      // Otherwise, display login form
+      return (
+        <div>
+          <div className="login-form">
+            <form onSubmit={onChange} autoComplete="off">
+              <div className="form-group">
+                <br />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="username-input"
+                  value={user.email}
+                  onChange={onChange}
+                  name="username"
+                  placeholder="username"
+                  required
+                />
+              </div>{" "}
+              <div className="form-group">
+                <br />
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password-input"
+                  value={user.password}
+                  onChange={onChange}
+                  name="password"
+                  placeholder="password"
+                  min="0"
+                  required
+                />
+              </div>
               <br />
-              <input
-                type="text"
-                className="form-control"
-                id="username-input"
-                value={user.email}
-                onChange={onChange}
-                name="username"
-                placeholder="username"
-                required
-              />
-            </div>{" "}
-            <div className="form-group">
-              <br />
-              <input
-                type="password"
-                className="form-control"
-                id="password-input"
-                value={user.password}
-                onChange={onChange}
-                name="password"
-                placeholder="password"
-                min="0"
-                required
-              />
-            </div>
-            <br />
-            <div className="form-group">
-              <button
-                type="submit"
-                className="authButton"
-                onSubmit={onSubmit}
-              >
-                Sign In
-              </button>
-              <p className="authSubtext">
-                Don't have an account?{" "}
-                <Link to="/register">Create an Account</Link>
-              </p>
-            </div>
-          </form>
+              <div className="form-group">
+                <button
+                  type="submit"
+                  className="authButton"
+                  onSubmit={onSubmit}
+                >
+                  Sign In
+                </button>
+                <p className="authSubtext">
+                  <Link to="/reset-password">Forgot Password?</Link>
+                </p>
+                <p className="authSubtext">
+                  Don't have an account?{" "}
+                  <Link to="/register">Create an Account</Link>
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+    // display forgot password form
+    else {
+      return (
+        <div>
+          <div className="login-form">
+            <form onSubmit={onSubmit}>
+              <div className="form-group">
+                <br />
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email-input"
+                  value={user.email}
+                  onChange={onChange}
+                  name="email"
+                  placeholder="email"
+                />
+              </div>{" "}
+              <br />
+              <div className="form-group">
+                <button
+                  type="submit"
+                  className="authButton"
+                  onSubmit={onSubmit}
+                >
+                  Send Reset Link
+                </button>
+                <p className="authSubtext">
+                  Remember your password? <Link to="/login">Sign In</Link>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      );
+    }
   }
 };
 

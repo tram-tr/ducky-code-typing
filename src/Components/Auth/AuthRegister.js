@@ -81,6 +81,7 @@ const AuthRegister = () => {
         user={newUser}
         onChange={onChangeHandler}
         onSubmit={onSubmitHandler}
+        forgotPwd={false}
       />
       <Footer />
     </div>

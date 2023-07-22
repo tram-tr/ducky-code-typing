@@ -80,6 +80,7 @@ const AuthLogin = () => {
         isLogin={true}
         onChange={onChangeHandler}
         onSubmit={onSubmitHandler}
+        forgotPwd={false}
       />
       <Footer />
     </div>

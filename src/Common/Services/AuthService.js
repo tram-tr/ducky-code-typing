@@ -19,14 +19,12 @@ export const createUser = (newUser, setError) => {
     user.set("email", email);
 
     console.log("User: ", user);
-    return user
-      .signUp()
-      .then((newUserSaved) => {
-        return newUserSaved;
-      })
-      /*.catch((error) => {
+    return user.signUp().then((newUserSaved) => {
+      return newUserSaved;
+    });
+    /*.catch((error) => {
         alert(`Error: ${error.message}`);
-      })*/;
+      })*/
   }
 };
 
@@ -39,14 +37,12 @@ export const loginUser = (currUser) => {
 
   console.log("User: ", user);
   console.log();
-  return user
-    .logIn(user.username, user.password)
-    .then((currUserSaved) => {
-      return currUserSaved;
-    })
-    /*.catch((error) => {
+  return user.logIn(user.username, user.password).then((currUserSaved) => {
+    return currUserSaved;
+  });
+  /*.catch((error) => {
       alert(`Error here: ${error.message}`);
-    })*/;
+    })*/
 };
 
 // used to check authentication
@@ -68,8 +64,18 @@ export const logoutUser = (navigate) => {
     })
     .then(() => {
       navigate("/");
-    })
-    /*.catch((error) => {
+    });
+  /*.catch((error) => {
       alert(`Error: ${error.message}`);
     });*/
+};
+
+// send a password reset request to Parse
+export const requestPasswordReset = async (email) => {
+  try {
+    await Parse.User.requestPasswordReset(email);
+    return true; // Password reset request was successful
+  } catch (error) {
+    throw new Error(`Error: ${error.message}`);
+  }
 };
