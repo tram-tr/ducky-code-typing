@@ -7,7 +7,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit, forgotPwd }) => {
     return (
       <div>
         <div className="register-form">
-          <form onSubmit={onChange} autoComplete="off">
+          <form onSubmit={onSubmit} autoComplete="off">
             <div className="form-group">
               <br />
               <input
@@ -104,7 +104,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit, forgotPwd }) => {
       return (
         <div>
           <div className="login-form">
-            <form onSubmit={onChange} autoComplete="off">
+            <form onSubmit={onSubmit} autoComplete="off">
               <div className="form-group">
                 <br />
                 <input

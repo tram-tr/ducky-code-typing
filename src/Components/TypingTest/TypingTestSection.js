@@ -282,7 +282,7 @@ const TypingTestSection = ({ chosenLanguage, setChosenLanguage }) => {
           <div className="typing-test-real-time-data">
             {prevAccuracy !== null && (
               <p className="typing-test-stats">
-                {`Latest Accuracy: ${prevAccuracy * 100}%`}
+                {`Latest Accuracy: ${(prevAccuracy * 100).toFixed(2)}%`}
               </p>
             )}
             {prevWPM !== null && (
